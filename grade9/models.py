@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 # Create your models here.
@@ -158,7 +159,7 @@ class CTMistake(models.Model):
     error3 = models.CharField(max_length=90)
     error4 = models.CharField(max_length=90)
 
-    correct_answer = models.CharField(max_length=90, choices=[(error1.__str__(), "option 1")])
+    correct_answer = models.CharField(max_length=90,)
 
     def __str__(self):
         return self.text
