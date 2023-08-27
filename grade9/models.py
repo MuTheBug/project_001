@@ -160,6 +160,7 @@ class CTMistake(models.Model):
     error4 = models.CharField(max_length=90)
 
     correct_answer = models.CharField(max_length=90,)
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.text
