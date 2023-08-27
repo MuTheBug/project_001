@@ -158,7 +158,7 @@ class CTMistake(models.Model):
     error3 = models.CharField(max_length=90)
     error4 = models.CharField(max_length=90)
 
-    correct_answer = models.CharField(max_length=90)
+    correct_answer = models.CharField(max_length=90,choices=[(error1.__str__(),"option 1")])
 
     def __str__(self):
         return self.text
