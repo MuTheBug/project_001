@@ -41,6 +41,7 @@ class Chapter(models.Model):
     class Meta:
         verbose_name = "0- Chapter"
 
+
 class Text(models.Model):
     text = models.TextField()
     type = models.CharField(max_length=15, choices=[("choices", "Choices"), ("tof", "True Or False")])
@@ -71,6 +72,7 @@ class TextQuestion(models.Model):
     class Meta:
         verbose_name = "2- Choices for Text"
 
+
 class Multiples(models.Model):
     question = models.CharField(max_length=200)
     answer_1 = models.CharField(max_length=200)
@@ -100,6 +102,7 @@ class TFQuestions(models.Model):
     class Meta:
         verbose_name = "3- True Or False Question"
 
+
 class Paragraphs(models.Model):
     paragraph = models.TextField()
     chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
@@ -109,6 +112,7 @@ class Paragraphs(models.Model):
 
     class Meta:
         verbose_name = "7- Paragraph"
+
 
 class MakeQuestions(models.Model):
     question = models.CharField(max_length=200)
@@ -123,6 +127,7 @@ class MakeQuestions(models.Model):
 
     class Meta:
         verbose_name = "5- Forming Question"
+
 
 class CorrectTheMistake(models.Model):
     text = models.TextField()
@@ -144,3 +149,19 @@ class CorrectTheMistake(models.Model):
 
     class Meta:
         verbose_name = "6- Find the mistake"
+
+
+class CTMistake(models.Model):
+    text = models.CharField(max_length=250)
+    error1 = models.CharField(max_length=90)
+    error2 = models.CharField(max_length=90)
+    error3 = models.CharField(max_length=90)
+    error4 = models.CharField(max_length=90)
+
+    correct_answer = models.CharField(max_length=90)
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name = "8- Choose the mistake"
