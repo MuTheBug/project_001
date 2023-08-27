@@ -1,0 +1,27 @@
+{% extends "admin/app_index.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the app title element
+            var appTitle = document.querySelector("#content-main > h1");
+            // Create a "Show/Hide" link
+            var showHideLink = document.createElement("a");
+            showHideLink.textContent = "Show/Hide";
+            showHideLink.style.cursor = "pointer";
+            showHideLink.style.marginLeft = "10px";
+            // Add a click event listener to the link
+            showHideLink.addEventListener("click", function() {
+                // Get all the elements after the app title
+                var elements = document.querySelectorAll("#content-main > *:not(h1)");
+                // Toggle their visibility
+                elements.forEach(function(element) {
+                    element.style.display = (element.style.display === "none") ? "" : "none";
+                });
+            });
+            // Add the link after the app title
+            appTitle.appendChild(showHideLink);
+        });
+    </script>
+{% endblock %}
