@@ -14,8 +14,8 @@ def main(request):
     questions_for_the_first_passage = TextQuestion.objects.filter(text_id=passage_with_choices.id)[:5]
     tf_passage = Text.objects.filter(type="tof").order_by('?').first()
     questions_for_the_second_passage = TFQuestions.objects.filter(text_id=tf_passage.id)
-    vocabularies = Multiples.objects.filter(type='vocabulary').order_by('?')[:3]
-    grammars = Multiples.objects.filter().exclude(type="vocabulary").order_by('?')[:17]
+    vocabularies = Multiples.objects.filter(type='vocabulary').order_by('?')[:4]
+    grammars = Multiples.objects.filter().exclude(type="vocabulary").order_by('?')[:16]
     questions = MakeQuestions.objects.filter().order_by('?')[:4]
     correct = CorrectTheMistake.objects.filter().order_by('?').first()
     paragraph = Paragraphs.objects.filter().order_by('?').first()

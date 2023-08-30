@@ -38,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'grade9.apps.ExamGeneratorConfig',
-    'grade12.apps.ExamGeneratorConfig',
-    'grade7.apps.ExamGeneratorConfig',
-    'grade8.apps.ExamGeneratorConfig',
+
     'home.apps.HomeConfig',
 
 
