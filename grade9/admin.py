@@ -9,7 +9,7 @@ class MyOwnSite(AdminSite):
 
 
 myapp_admin_site = MyOwnSite(name='myapp_admin')
-
+myapp_admin_site.register(Grade,)
 myapp_admin_site.register(Chapter, )
 myapp_admin_site.register(Text, )
 myapp_admin_site.register(TextQuestion, )

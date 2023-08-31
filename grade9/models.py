@@ -1,8 +1,25 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 
 
 # Create your models here.
+
+class Grade(models.Model):
+    grades = (
+        (7, "Grade 7"),
+        (8, "Grade 8"),
+        (9, "Grade 9"),
+        (10, "Grade 10"),
+        (11, "Grade 11"),
+        (12, "Grade 12"),
+
+    )
+    grade = models.PositiveSmallIntegerField(choices=grades)
+
+    def __str__(self):
+        return f'{self.grade}'
+
+    class Meta:
+        verbose_name = "-1 Grade"
 
 
 class Chapter(models.Model):
@@ -34,10 +51,11 @@ class Chapter(models.Model):
 
     )
 
-    number = models.CharField(max_length=3, choices=choices, unique=True)
+    number = models.CharField(max_length=3, choices=choices, )
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.number}'
+        return f'{self.grade}G-{self.number}'
 
     class Meta:
         verbose_name = "0- Chapter"
@@ -51,7 +69,7 @@ class Text(models.Model):
     marker = models.TimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.type} Text from {self.chapter} : {self.id}'
+        return f'{self.type}-{self.chapter} : {self.id}'
 
     class Meta:
         verbose_name = "1- Text"
@@ -159,7 +177,7 @@ class CTMistake(models.Model):
     error3 = models.CharField(max_length=90)
     error4 = models.CharField(max_length=90)
 
-    correct_answer = models.CharField(max_length=90,)
+    correct_answer = models.CharField(max_length=90, )
     chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
 
     def __str__(self):

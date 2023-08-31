@@ -9,11 +9,10 @@ def get_chapter(text):
 
 
 def main(request):
-
-    passage_with_choices = Text.objects.filter(type='choices').order_by('?').first()
+    passage_with_choices = Text.objects.filter(type='choices', chapter__number__contains='2a').order_by('?').first()
     questions_for_the_first_passage = TextQuestion.objects.filter(text_id=passage_with_choices.id)[:5]
     tf_passage = Text.objects.filter(type="tof").order_by('?').first()
-    questions_for_the_second_passage = TFQuestions.objects.filter(text_id=tf_passage.id)
+    questions_for_the_second_passage = TFQuestions.objects.filter(text_id=tf_passage.id).order_by('?')[:5]
     vocabularies = Multiples.objects.filter(type='vocabulary').order_by('?')[:4]
     grammars = Multiples.objects.filter().exclude(type="vocabulary").order_by('?')[:16]
     questions = MakeQuestions.objects.filter().order_by('?')[:4]
