@@ -4,8 +4,8 @@ from django.contrib.admin import AdminSite
 
 
 class MyOwnSite(AdminSite):
-    site_title = "Foo Admin"
-    site_header = '9Th Grade administration'
+    site_title = "Admin"
+    site_header = 'administration'
 
 
 myapp_admin_site = MyOwnSite(name='myapp_admin')
