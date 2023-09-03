@@ -116,10 +116,17 @@
                 {% endfor %}
             </ol>
 
-            <h4 class="main_question">V- Rewrite the following passage after correcting the four mistakes in it: / 20
+            <h4 class="main_question">V- Choose the answer that is incorrect: / 20
                 Marks / </h4>
-            <ol start="35">
-                {{ c.text|label_errors:c }}
+            <ol class="fin" start="35">
+
+                  {% for q in c %}
+            <li>
+
+                {{q.text|underline_and_label:q}}
+
+            </li>
+                {% endfor %}
 
 
             </ol>

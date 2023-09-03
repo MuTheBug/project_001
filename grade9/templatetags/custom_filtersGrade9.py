@@ -6,19 +6,19 @@ register = template.Library()
 
 @register.filter
 def underline(value, word):
-    return mark_safe(value.replace(word, '<u>' + word + '</u>'))
+    # print(value)
+    # print(word)
+    x = mark_safe(value.replace(word, '<u>' + word + '</u>'))
+    # print(x)
+    return x
 
 
 @register.filter
-def label_errors(text, mistake):
-    html = '<span>{0}</span>'.format(text)
+def underline_and_label(value, word):
 
-    errors = [mistake.error1, mistake.error2, mistake.error3, mistake.error4]
-    letters = ['A', 'B', 'C', 'D']
+    x = mark_safe(value.replace(word.error1, '<sup>A</sup><u>' + word.error1 + '</u>',1))
+    x = mark_safe(x.replace(word.error2, '<sup>B</sup><u>' + word.error2 + '</u>',1))
+    x = mark_safe(x.replace(word.error3, '<sup>C</sup><u>' + word.error3 + '</u>',1))
+    x = mark_safe(x.replace(word.error4, '<sup>D</sup><u>' + word.error4 + '</u>',1))
 
-    for i, error in enumerate(errors):
-        if error:
-            html = html.replace(error, '<u>{0}</u>'.format(error))
-            html = html.replace(error, '{0}, {1}'.format(letters[i], error))
-
-    return html
+    return x

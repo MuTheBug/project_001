@@ -171,9 +171,12 @@ body {
 }
 
 .hatch {
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     padding-top: 5px;
     text-align: justify;
+}
+.options{
+    padding-bottom:5px;
 }
 
 .make_questions {
@@ -202,4 +205,10 @@ body {
 
 ol > li::marker {
     font-weight: bold;
+}
+.fin>li{
+    padding-bottom: 1.2em;
+    line-height: 1.3em;
+    text-align: left;
+    letter-spacing: 0;
 }
