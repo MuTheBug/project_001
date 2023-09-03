@@ -51,7 +51,7 @@ class Chapter(models.Model):
 
     )
 
-    number = models.CharField(max_length=3, choices=choices, )
+    number = models.CharField(max_length=3, choices=choices,)
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
 
     def __str__(self):
