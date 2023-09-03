@@ -1,0 +1,140 @@
+{% load custom_filtersGrade9 %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'style.css' %}?{% now "U" %}">
+    <link rel="stylesheet" href="{% static 'print.css' %}?{% now "U" %}" media="print">
+
+    <title>9thGradeChapter1-2</title>
+</head>
+<body>
+
+<div class="main">
+    <div class="header">
+        <div class="header_right">
+            <h4 class="header_item">الجمهورية العربية السورية</h4>
+            <h4 class="header_item">الاستاذ: مهند وليد حســون</h4>
+            <h4 class="header_item">مدرسة</h4>
+        </div>
+        <div class="header_middle">
+            <h4 class="header_item">اللغة الانكليزية</h4>
+            <h4 class="header_item">الوحدة: ١ - ٢</h4>
+            <h4 class="header_item">الفصل الأول</h4>
+
+        </div>
+        <div class="header_left">
+            <h4 class="header_item">المدة: ساعتان </h4>
+            <h4 class="header_item">الصف: التاسع </h4>
+            <h4 class="header_item">الدرجة: ٤٠٠ </h4>
+        </div>
+
+    </div>
+    <div class="divider"></div>
+    <div class="body">
+        <div class="body_left">
+            <h4 class="main_question lefty">I- Read the following text and choose the correct answer (a,b,c, or d) / 50
+                Marks /: </h4>
+            <div class="body_left_up">
+                <p class="text">{{ passage_with_choices.text }}</p>
+            </div>
+            <div class="body_left_down text">
+                <ol>
+                    {% for question in questions_for_the_first_passage %}
+                        <li class="passage_left_question">{{ question.question }}</li>
+                        <ol class="options" type="a">
+                            <li>{{ question.answer_1 }}</li>
+                            <li>{{ question.answer_2 }}</li>
+                            <li>{{ question.answer_3 }}</li>
+                            <li>{{ question.answer_4 }}</li>
+                        </ol>
+                    {% endfor %}
+
+                </ol>
+            </div>
+        </div>
+        <div class="body_right">
+            <h4 class="main_question">II- Read the following text then decide if the sentences are True or False: / 50
+                Marks /</h4>
+
+            <div class="body_right_up">
+                <p class="text">{{ tf_passage.text }}</p>
+            </div>
+            <div class="body_right_down">
+                <ol start="6">
+                    {% for question in questions_for_the_second_passage %}
+                        <li class="passage_right_question">{{ question.question }}</li>
+                    {% endfor %}
+
+                </ol>
+                <h4 class="main_question">III- Choose the correct answer / 200 Marks / : </h4>
+                <ol start="11">
+                    {% for question in vocabularies %}
+                        <li class="multy">{{ question.question }}</li>
+                        <div class="options">
+                            <p>a. {{ question.answer_1 }}</p>
+
+                            <p>b. {{ question.answer_2 }}</p>
+                            <p>c. {{ question.answer_3 }}</p>
+                            <p>d. {{ question.answer_4 }}</p>
+                        </div>
+                    {% endfor %}
+                </ol>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="second_page">
+        <div class="second_page_left">
+            <ol start="15">
+                {% for question in grammars %}
+                    <li class="multy hatch">{{ question.question }}</li>
+                    <div class="options">
+                        <p>a. {{ question.answer_1 }}</p>
+                        <p>b. {{ question.answer_2 }}</p>
+                        <p>c. {{ question.answer_3 }}</p>
+                        <p>d. {{ question.answer_4 }}</p>
+                    </div>
+                {% endfor %}
+            </ol>
+        </div>
+
+        <div class="second_page_right">
+            <h4 class="main_question">IV- Ask about the underlined words / 40 Marks /: </h4>
+            <ol start="31">
+                {% load custom_filtersGrade9 %}
+
+                {% for q in questions %}
+                    <li class="make_questions">{{ q.question|underline:q.underlined_word }}</li>
+                    <p>.......................................................................</p>
+                {% endfor %}
+            </ol>
+
+            <h4 class="main_question">V- Rewrite the following passage after correcting the four mistakes in it: / 20
+                Marks / </h4>
+            <ol start="35">
+                {{ c.text|label_errors:c }}
+
+
+            </ol>
+            <h4 class="main_question">VI- Write a composition of no more than (80) words about the following topic: / 40
+                Marks /</h4>
+            <p class="correct_the_mistakes">{{ para.paragraph }}</p>
+            <p class="end"><i><b>Best Wishes</b></i></p>
+            <p class="end"><i><b>Muhannad Waleed Hassoun </b></i></p>
+            <p class="end"><i><b>Whatsapp: 0997606295</b></i></p>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="watermark">Muhannad Hassoun</div>
+</body>
+</html>
