@@ -6,10 +6,7 @@ register = template.Library()
 
 @register.filter
 def underline(value, word):
-    # print(value)
-    # print(word)
     x = mark_safe(value.replace(word, '<u>' + word + '</u>'))
-    # print(x)
     return x
 
 

@@ -171,12 +171,13 @@ body {
 }
 
 .hatch {
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-top: 5px;
     text-align: justify;
 }
 .options{
     padding-bottom:5px;
+    flex-basis: 50%;
 }
 
 .make_questions {
@@ -192,16 +193,7 @@ body {
     text-align: center;
 }
 
-.watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%) rotate(-45deg);
-    font-size: 195px;
-    color: black;
-    opacity: 0.1;
-    z-index: 9999;
-}
+
 
 ol > li::marker {
     font-weight: bold;
@@ -211,4 +203,7 @@ ol > li::marker {
     line-height: 1.3em;
     text-align: left;
     letter-spacing: 0;
+}
+.watermark{
+    opacity: 0;;
 }

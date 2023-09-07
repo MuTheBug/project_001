@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}?{% now "U" %}">
     <link rel="stylesheet" href="{% static 'print.css' %}?{% now "U" %}" media="print">
 
-    <title>9thGradeChapter1-2</title>
+    <title>9thGradeChapter{{ chapters.strip }}</title>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
         </div>
         <div class="header_middle">
             <h4 class="header_item">اللغة الانكليزية</h4>
-            <h4 class="header_item">الوحدة: ١ - ٢</h4>
+            <h4 class="header_item">الوحدة:   {{chapters}}</h4>
             <h4 class="header_item">الفصل الأول</h4>
 
         </div>
@@ -45,12 +45,12 @@
             <div class="body_left_down text">
                 <ol>
                     {% for question in questions_for_the_first_passage %}
-                        <li class="passage_left_question">{{ question.question }}</li>
+                        <li class="passage_left_question">{{ question.question.capitalize }}</li>
                         <ol class="options" type="a">
-                            <li>{{ question.answer_1 }}</li>
-                            <li>{{ question.answer_2 }}</li>
-                            <li>{{ question.answer_3 }}</li>
-                            <li>{{ question.answer_4 }}</li>
+                            <li>{{ question.answer_1.capitalize }}</li>
+                            <li>{{ question.answer_2.capitalize }}</li>
+                            <li>{{ question.answer_3.capitalize }}</li>
+                            <li>{{ question.answer_4.capitalize }}</li>
                         </ol>
                     {% endfor %}
 
@@ -67,20 +67,20 @@
             <div class="body_right_down">
                 <ol start="6">
                     {% for question in questions_for_the_second_passage %}
-                        <li class="passage_right_question">{{ question.question }}</li>
+                        <li class="passage_right_question">{{ question.question.capitalize }}</li>
                     {% endfor %}
 
                 </ol>
                 <h4 class="main_question">III- Choose the correct answer / 200 Marks / : </h4>
                 <ol start="11">
                     {% for question in vocabularies %}
-                        <li class="multy">{{ question.question }}</li>
+                        <li class="multy">{{ question.question.capitalize }}</li>
                         <div class="options">
-                            <p>a. {{ question.answer_1 }}</p>
+                            <p>a. {{ question.answer_1.capitalize }}</p>
 
-                            <p>b. {{ question.answer_2 }}</p>
-                            <p>c. {{ question.answer_3 }}</p>
-                            <p>d. {{ question.answer_4 }}</p>
+                            <p>b. {{ question.answer_2.capitalize }}</p>
+                            <p>c. {{ question.answer_3.capitalize }}</p>
+                            <p>d. {{ question.answer_4.capitalize }}</p>
                         </div>
                     {% endfor %}
                 </ol>
@@ -94,12 +94,12 @@
         <div class="second_page_left">
             <ol start="15">
                 {% for question in grammars %}
-                    <li class="multy hatch">{{ question.question }}</li>
+                    <li class="multy hatch">{{ question.question.capitalize }}</li>
                     <div class="options">
-                        <p>a. {{ question.answer_1 }}</p>
-                        <p>b. {{ question.answer_2 }}</p>
-                        <p>c. {{ question.answer_3 }}</p>
-                        <p>d. {{ question.answer_4 }}</p>
+                        <p>a. {{ question.answer_1.capitalize }}</p>
+                        <p>b. {{ question.answer_2.capitalize }}</p>
+                        <p>c. {{ question.answer_3.capitalize }}</p>
+                        <p>d. {{ question.answer_4.capitalize }}</p>
                     </div>
                 {% endfor %}
             </ol>
@@ -123,7 +123,7 @@
                   {% for q in c %}
             <li>
 
-                {{q.text|underline_and_label:q}}
+                {{q.text.capitalize|underline_and_label:q}}
 
             </li>
                 {% endfor %}
@@ -142,6 +142,6 @@
 </div>
 
 
-<div class="watermark">Muhannad Hassoun</div>
+<div class="watermark"><span class="headWatermark">Muhannad</span> <span class="subWatermark">Hassoun</span> 0997606295</div>
 </body>
 </html>
