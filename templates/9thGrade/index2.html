@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}?{% now "U" %}">
     <link rel="stylesheet" href="{% static 'print.css' %}?{% now "U" %}" media="print">
 
-    <title>9thGradeChapter{{ chapters.strip }}</title>
+    <title>{{ grade }}{{ "_" }}{{ chapters.strip }}</title>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
         </div>
         <div class="header_left">
             <h4 class="header_item">المدة: ساعتان </h4>
-            <h4 class="header_item">الصف: التاسع </h4>
+            <h4 class="header_item">الصف: {{ grade }} </h4>
             <h4 class="header_item">الدرجة: ٤٠٠ </h4>
         </div>
 
@@ -47,10 +47,10 @@
                     {% for question in questions_for_the_first_passage %}
                         <li class="passage_left_question">{{ question.question.capitalize }}</li>
                         <ol class="options" type="a">
-                            <li>{{ question.answer_1.capitalize }}</li>
-                            <li>{{ question.answer_2.capitalize }}</li>
-                            <li>{{ question.answer_3.capitalize }}</li>
-                            <li>{{ question.answer_4.capitalize }}</li>
+                            <li>{{ question.answer_1 }}</li>
+                            <li>{{ question.answer_2 }}</li>
+                            <li>{{ question.answer_3}}</li>
+                            <li>{{ question.answer_4 }}</li>
                         </ol>
                     {% endfor %}
 
@@ -76,11 +76,11 @@
                     {% for question in vocabularies %}
                         <li class="multy">{{ question.question.capitalize }}</li>
                         <div class="options">
-                            <p>a. {{ question.answer_1.capitalize }}</p>
+                            <p>a. {{ question.answer_1 }}</p>
 
-                            <p>b. {{ question.answer_2.capitalize }}</p>
-                            <p>c. {{ question.answer_3.capitalize }}</p>
-                            <p>d. {{ question.answer_4.capitalize }}</p>
+                            <p>b. {{ question.answer_2 }}</p>
+                            <p>c. {{ question.answer_3}}</p>
+                            <p>d. {{ question.answer_4 }}</p>
                         </div>
                     {% endfor %}
                 </ol>
@@ -95,11 +95,11 @@
             <ol start="15">
                 {% for question in grammars %}
                     <li class="multy hatch">{{ question.question.capitalize }}</li>
-                    <div class="options">
-                        <p>a. {{ question.answer_1.capitalize }}</p>
-                        <p>b. {{ question.answer_2.capitalize }}</p>
-                        <p>c. {{ question.answer_3.capitalize }}</p>
-                        <p>d. {{ question.answer_4.capitalize }}</p>
+                    <div class="options new">
+                        <p>a. {{ question.answer_1}}</p>
+                        <p>b. {{ question.answer_2 }}</p>
+                        <p>c. {{ question.answer_3}}</p>
+                        <p>d. {{ question.answer_4}}</p>
                     </div>
                 {% endfor %}
             </ol>

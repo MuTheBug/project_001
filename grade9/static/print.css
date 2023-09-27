@@ -63,3 +63,8 @@
 .headWatermark{
     letter-spacing: 11px;
 }
+
+.body {
+  resize: both; /* allow resizing in both directions */
+  overflow: auto; /* add scrollbars if needed */
+}

@@ -125,7 +125,7 @@ body {
 
 .options {
     display: flex;
-    gap: 0 1.7em;
+    gap: 0 1.5em;
     flex-wrap: wrap;
 }
 
@@ -142,7 +142,7 @@ body {
 
 .second_page {
     margin-top: 0;
-    padding-top: 7px;
+    padding-top: 10px;
     display: flex;
     flex-direction: row;
     text-align: justify;
@@ -159,7 +159,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     line-height: 1.3em;
-    width: 50%;
+    width: 60%;
 }
 
 .second_page_right {
@@ -171,12 +171,12 @@ body {
 }
 
 .hatch {
-    padding-bottom: 0;
-    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-top: 0;
     text-align: justify;
 }
 .options{
-    padding-bottom:5px;
+    padding-bottom:8px;
     flex-basis: 50%;
 }
 
@@ -187,6 +187,7 @@ body {
 .correct_the_mistakes {
     padding: 0 15px;
     line-height: 1.7em;
+
 }
 
 .end {
@@ -206,4 +207,10 @@ ol > li::marker {
 }
 .watermark{
     opacity: 0;;
+}
+.new{
+    padding-bottom: 12px !important;
+}
+.new:last-child{
+    padding-bottom: 0;
 }
