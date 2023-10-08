@@ -3,10 +3,10 @@ from grade9.models import *
 
 
 def main(request):
-    chapters = ['1s', '2s', '1a', '2a', '3s', '3a','4a','4s','5s']
+    chapters = ['1s', '2s', '1a', '2a', '3s', '3a', '4a', '4s', '5s']
     # chapters = ['3s', '3a', '2a', '2s']
-    chapters = ['1s', '1a']
-    grade = 12
+    chapters = ['2s', '2a']
+    grade = 9
     grades = ['صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'السابع', 'الثامن', 'التاسع', 'العاشر', 'الحادي عشر',
               'الثاني عشر', ]
     s = set()
@@ -51,12 +51,7 @@ def main(request):
     print(list(x_ids))
     grammars = Multiples.objects.filter(chapter__number__in=chapters, chapter__grade__grade=grade).exclude(
         type='vocabulary').order_by('?')[:16]
-    # grammars = y.exclude(id__in=x_ids)
-    # grammars = grammars[:16]
-    # grammar__ids = grammars.values_list('id',flat=True)
-    # print(grammar__ids)
-    # result = list(set(x_ids).intersection(grammar__ids))
-    # print(result)
+
 
     questions = MakeQuestions.objects.filter(chapter__number__in=chapters, chapter__grade__grade=grade).order_by('?')[
                 :4]

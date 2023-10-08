@@ -98,9 +98,10 @@ class Multiples(models.Model):
     answer_2 = models.CharField(max_length=200)
     answer_3 = models.CharField(max_length=200)
     answer_4 = models.CharField(max_length=200)
+    correct_answer = models.CharField(max_length=200)
+
     type = models.CharField(max_length=30,
                             choices=[("grammar", "Grammar"), ("phonetics", "Phonetics"), ("vocabulary", "Vocabulary")])
-    correct_answer = models.CharField(max_length=200)
     chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
 
     def __str__(self):
