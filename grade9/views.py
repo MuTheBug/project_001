@@ -4,11 +4,11 @@ from grade9.models import *
 
 def main(request):
     chapters = ['1s', '2s', '1a', '2a', '3s', '3a', '4a', '4s', '5s']
-    # chapters = ['3s', '3a', '2a', '2s']
-    chapters = ['2s', '2a']
+    chapters = ['5s', '5a', '6a', '6s']
+    # chapters = ['3s', '3a']
     grade = 9
     grades = ['صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'السابع', 'الثامن', 'التاسع', 'العاشر', 'الحادي عشر',
-              'الثاني عشر', ]
+              'الثاني عشر ', ]
     s = set()
     for ch in chapters:
         s.add(int((ch[0])))
@@ -51,7 +51,6 @@ def main(request):
     print(list(x_ids))
     grammars = Multiples.objects.filter(chapter__number__in=chapters, chapter__grade__grade=grade).exclude(
         type='vocabulary').order_by('?')[:16]
-
 
     questions = MakeQuestions.objects.filter(chapter__number__in=chapters, chapter__grade__grade=grade).order_by('?')[
                 :4]
