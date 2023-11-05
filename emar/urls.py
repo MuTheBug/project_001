@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('grade9.urls')),
     path('', include('home.urls')),
-    path('', include('quizz.urls')),
+    # path('', include('quizz.urls')),
 
 
 ]

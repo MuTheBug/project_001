@@ -4,8 +4,8 @@ from grade9.models import *
 
 def main(request):
     chapters = ['1s', '2s', '1a', '2a', '3s', '3a', '4a', '4s', '5s']
-    chapters = ['5s', '5a', '6a', '6s']
-    # chapters = ['3s', '3a']
+    chapters = ['3s', '3a', '4a', '4s']
+    chapters = ['4s', '4a']
     grade = 9
     grades = ['صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'صفر', 'السابع', 'الثامن', 'التاسع', 'العاشر', 'الحادي عشر',
               'الثاني عشر ', ]
